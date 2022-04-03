@@ -7,7 +7,6 @@ import axios from 'axios';
 const Tambah = () => {
   const [status, setstatus] = react.useState('sending');
   const neversubmit = react.useRef(true);
-  // const [data, setdata] = react.useState('');
 
   function notif() {
     if(!neversubmit.current) {
@@ -25,7 +24,7 @@ const Tambah = () => {
     console.log(val.target.name.value);
     const v = val.target;
     axios({
-      url: 'http://localhost:3001/updatetable',
+      url: 'https://eduwork-expressside-mongoatlas.herokuapp.com/updatetable',
       method: 'post',
       data: { name: v.name.value, price: v.price.value, stock: v.stock.value, status: v.status.checked }
     }).then(res => {

@@ -13,7 +13,7 @@ const Edit = (props) => {
     if(status === 'sent') {
       console.log('axios after sent');
       axios({
-        url: 'http://localhost:3001/updateproduct',
+        url: 'https://eduwork-expressside-mongoatlas.herokuapp.com/updateproduct',
         method: 'get',
         params: {id: props.data._id}
       }).then(res => {
@@ -46,7 +46,7 @@ const Edit = (props) => {
     setstatus('sending');
     const v = val.target;
     axios({
-      url: `http://localhost:3001/updateproduct`,
+      url: `https://eduwork-expressside-mongoatlas.herokuapp.com/updateproduct`,
       method: 'PATCH',
       params: {
         filter: idforfilter.current,
@@ -61,12 +61,6 @@ const Edit = (props) => {
     })
   }
 
-  // add onChange inside the input so the input is editable, therefore the product useRef should be replaced with useState so
-  // the component will re-render each change.
-  // does repetitive render from onChange will affect the axios and other things?
-  // when the update is submited and success the input value should be updated with axios get method.
-
-
   return (
     <div className="main">
       <div className="card">
@@ -76,7 +70,6 @@ const Edit = (props) => {
           <Input name="name" type="text" placeholder="Nama Produk..." label="Nama" value={product.name}
           onChange={
             val => setproduct(prev => {
-              console.log(prev);
               return {...prev, name: val.target.value}
             })
           }/>

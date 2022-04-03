@@ -14,7 +14,7 @@ const Home = (props) => {
 
   function getdata() {
     axios({
-      url: 'http://localhost:3001/getall',
+      url: 'https://eduwork-expressside-mongoatlas.herokuapp.com/getall',
       method: 'get',
       headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}
     }).then(resp => {
@@ -51,7 +51,7 @@ const Home = (props) => {
               <td className="text-center">
               <Link to="/detail" onClick={() => send_data(index)} className="btn btn-sm btn-info">Detail</Link>
               <Link to="/edit" onClick={() => send_data(index)} className="btn btn-sm btn-warning">Edit</Link>
-              <Link to='/' onClick={val => del_product(`http://localhost:3001/updatetable?id=${item._id}`)}
+              <Link to='/' onClick={val => del_product(`https://eduwork-expressside-mongoatlas.herokuapp.com/updatetable?id=${item._id}`)}
                 className="btn btn-sm btn-danger">Delete</Link>
               </td>
               </tr>
@@ -59,6 +59,7 @@ const Home = (props) => {
           } else { return null }
         }))}
   }
+  
   return(
     <div className="main">
       <Link to="/tambah" className="btn btn-primary">Tambah Produk</Link>
